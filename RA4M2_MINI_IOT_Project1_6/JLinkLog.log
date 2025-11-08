@@ -1,0 +1,221 @@
+TA0FC 000:000.655   SEGGER J-Link V8.12f Log File
+TA0FC 000:000.757   DLL Compiled: Feb 12 2025 13:34:40
+TA0FC 000:000.763   Logging started @ 2025-11-08 17:25
+TA0FC 000:000.769   Process: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\e2-server-gdb.exe
+TA0FC 000:000.778 - 0.775ms 
+TA0FC 000:000.790 JLINK_GetDLLVersion()
+TA0FC 000:000.796 - 0.006ms returns 81206
+TA0FC 000:003.475 JLINK_OpenEx(...)
+TA0FC 000:012.022   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+TA0FC 000:012.565   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+TA0FC 000:012.681   Decompressing FW timestamp took 100 us
+TA0FC 000:017.989   Hardware: V9.60
+TA0FC 000:018.012   S/N: 69667700
+TA0FC 000:018.020   OEM: SEGGER
+TA0FC 000:018.028   Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+TA0FC 000:018.433   Bootloader: (FW returned invalid version)
+TA0FC 000:019.024   TELNET listener socket opened on port 19021
+TA0FC 000:019.230   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+TA0FC 000:019.338   WEBSRV Webserver running on local port 19080
+TA0FC 000:019.527   Looking for J-Link GUI Server exe at: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\ARM\Segger_v8.12.6\JLinkGUIServer.exe
+TA0FC 000:019.766   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+TA0FC 000:019.850   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+TA0FC 000:105.476   J-Link GUI Server info: "J-Link GUI server V8.18 "
+TA0FC 000:109.626 - 106.146ms returns "O.K."
+TA0FC 000:109.740 JLINK_ExecCommand("ProjectFile=C:\Users\a8456\e2_studio\workspace\RA4M2_MINI_IOT_Project1_6/RA4M2_MINI_IOT_Project1_6.elf.jlink", ...). 
+TA0FC 000:135.199 - 25.468ms returns 0x00
+TA0FC 000:135.472 JLINK_ExecCommand("device=R7FA4M2AD", ...). 
+TA0FC 000:135.610   Flash bank @ 0x0100A100: SFL: Parsing sectorization info from ELF file
+TA0FC 000:135.621     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000010, .SectorStartAddr = 0x00000000
+TA0FC 000:135.629   FlashBank @0x0100A100: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+TA0FC 000:135.842   Flash bank @ 0x60000000: SFL: Parsing sectorization info from ELF file
+TA0FC 000:135.853     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+TA0FC 000:138.895   Device "R7FA4M2AD" selected.
+TA0FC 000:139.942 - 4.458ms returns 0x00
+TA0FC 000:139.979 JLINK_TIF_GetAvailable(...)
+TA0FC 000:140.493 - 0.514ms 
+TA0FC 000:140.522 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+TA0FC 000:141.096 - 0.573ms returns 0x00
+TA0FC 000:141.115 JLINK_SetSpeed(4000)
+TA0FC 000:141.174 - 0.060ms 
+TA0FC 000:141.202 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:141.335   ConfigTargetSettings() start
+TA0FC 000:141.352    J-Link Script File: Executing ConfigTargetSettings()
+TA0FC 000:141.360   Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+TA0FC 000:147.388   ConfigTargetSettings() end - Took 6.03ms
+TA0FC 000:147.406   InitTarget() start
+TA0FC 000:147.415    J-Link Script File: Executing InitTarget()
+TA0FC 000:147.423   SWD selected. Executing JTAG -> SWD switching sequence.
+TA0FC 000:148.811   DAP initialized successfully.
+TA0FC 000:148.828   Determining TrustZone configuration...
+TA0FC 000:149.520     Secure Debug: Enabled (SSD)
+TA0FC 000:149.537   Determining currently configured transfer type by reading the AHB-AP CSW register.
+TA0FC 000:150.029     --> Correct transfer type configured. Done.
+TA0FC 000:150.040   InitTarget() end - Took 2.62ms
+TA0FC 000:150.446   Found SW-DP with ID 0x6BA02477
+TA0FC 000:151.848   DPIDR: 0x6BA02477
+TA0FC 000:151.862   CoreSight SoC-400 or earlier
+TA0FC 000:151.876   Scanning AP map to find all available APs
+TA0FC 000:152.522   AP[2]: Stopped AP scan as end of AP map has been reached
+TA0FC 000:152.540   AP[0]: AHB-AP (IDR: 0x84770001, ADDR: 0x00000000)
+TA0FC 000:152.548   AP[1]: APB-AP (IDR: 0x54770002, ADDR: 0x01000000)
+TA0FC 000:152.556   Iterating through AP map to find AHB-AP to use
+TA0FC 000:153.218   AP[0]: Core found
+TA0FC 000:153.230   AP[0]: AHB-AP ROM base: 0xE00FE000
+TA0FC 000:153.567   CPUID register: 0x410FD214. Implementer code: 0x41 (ARM)
+TA0FC 000:153.581   Feature set: Mainline
+TA0FC 000:153.907   Cache: No cache
+TA0FC 000:153.922   Found Cortex-M33 r0p4, Little endian.
+TA0FC 000:154.132   -- Max. mem block: 0x00010C40
+TA0FC 000:154.595   
+  ***** Warning: 
+TA0FC 000:154.604   Cortex-M (ARMv8-M and later): The connected J-Link (S/N 69667700) uses an old firmware module that does not handle I/D-cache correctly. Proper debugging functionality cannot be guaranteed if cache is enabled
+TA0FC 000:154.617   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:154.828   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:155.075   CPU_ReadMem(4 bytes @ 0xE0002000)
+TA0FC 000:155.321   FPUnit: 8 code (BP) slots and 0 literal slots
+TA0FC 000:155.339   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+TA0FC 000:155.626   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+TA0FC 000:155.890   CPU_ReadMem(4 bytes @ 0xE0001000)
+TA0FC 000:156.142   CPU_ReadMem(4 bytes @ 0xE0001000)
+TA0FC 000:156.365   CPU_ReadMem(4 bytes @ 0xE0001028)
+TA0FC 000:156.589   CPU_ReadMem(4 bytes @ 0xE0001038)
+TA0FC 000:156.800   CPU_ReadMem(4 bytes @ 0xE0001048)
+TA0FC 000:157.023   CPU_ReadMem(4 bytes @ 0xE0001058)
+TA0FC 000:157.252   CPU_WriteMem(4 bytes @ 0xE0001000)
+TA0FC 000:157.518   CPU_ReadMem(4 bytes @ 0xE000ED88)
+TA0FC 000:157.743   CPU_WriteMem(4 bytes @ 0xE000ED88)
+TA0FC 000:157.989   CPU_ReadMem(4 bytes @ 0xE000ED88)
+TA0FC 000:158.217   CPU_WriteMem(4 bytes @ 0xE000ED88)
+TA0FC 000:158.517   CPU_ReadMem(4 bytes @ 0xE000EFB8)
+TA0FC 000:158.744   Security extension: implemented
+TA0FC 000:158.756   Secure debug: enabled
+TA0FC 000:158.764   CoreSight components:
+TA0FC 000:158.772   ROMTbl[0] @ E00FE000
+TA0FC 000:158.782   CPU_ReadMem(64 bytes @ 0xE00FE000)
+TA0FC 000:159.292   CPU_ReadMem(32 bytes @ 0xE0044FE0)
+TA0FC 000:159.666   CPU_ReadMem(4 bytes @ 0xE0044FBC)
+TA0FC 000:159.908   CPU_ReadMem(4 bytes @ 0xE0044FCC)
+TA0FC 000:160.118   [0][0]: E0044000 CID B105900D PID 005BB906 DEVARCH 00000000 DEVTYPE 14 CTI (?)
+TA0FC 000:160.128   CPU_ReadMem(32 bytes @ 0xE0047FE0)
+TA0FC 000:160.543   CPU_ReadMem(4 bytes @ 0xE0047FBC)
+TA0FC 000:160.755   CPU_ReadMem(4 bytes @ 0xE0047FCC)
+TA0FC 000:160.999   [0][1]: E0047000 CID B105900D PID 003BB908 DEVARCH 00000000 DEVTYPE 12 CSTF
+TA0FC 000:161.014   CPU_ReadMem(32 bytes @ 0xE0048FE0)
+TA0FC 000:161.380   CPU_ReadMem(4 bytes @ 0xE0048FBC)
+TA0FC 000:161.607   CPU_ReadMem(4 bytes @ 0xE0048FCC)
+TA0FC 000:161.831   [0][2]: E0048000 CID B105900D PID 001BB961 DEVARCH 00000000 DEVTYPE 21 TMC
+TA0FC 000:161.843   CPU_ReadMem(32 bytes @ 0xE0049FE0)
+TA0FC 000:162.209   [0][3]: E0049000 CID B105F00D PID 001BB101 TSG
+TA0FC 000:162.220   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+TA0FC 000:162.569   CPU_ReadMem(4 bytes @ 0xE0040FBC)
+TA0FC 000:162.781   CPU_ReadMem(4 bytes @ 0xE0040FCC)
+TA0FC 000:163.036   [0][4]: E0040000 CID B105900D PID 000BBD21 DEVARCH 00000000 DEVTYPE 11 TPIU
+TA0FC 000:163.050   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+TA0FC 000:163.420   [0][5]: E00FF000 CID B105100D PID 000BB4C9 ROM Table
+TA0FC 000:163.431   ROMTbl[1] @ E00FF000
+TA0FC 000:163.440   CPU_ReadMem(64 bytes @ 0xE00FF000)
+TA0FC 000:163.973   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+TA0FC 000:164.342   CPU_ReadMem(4 bytes @ 0xE000EFBC)
+TA0FC 000:164.559   CPU_ReadMem(4 bytes @ 0xE000EFCC)
+TA0FC 000:164.778   [1][0]: E000E000 CID B105900D PID 000BBD21 DEVARCH 47702A04 DEVTYPE 00 Cortex-M33
+TA0FC 000:164.788   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+TA0FC 000:165.136   CPU_ReadMem(4 bytes @ 0xE0001FBC)
+TA0FC 000:165.364   CPU_ReadMem(4 bytes @ 0xE0001FCC)
+TA0FC 000:165.619   [1][1]: E0001000 CID B105900D PID 000BBD21 DEVARCH 47701A02 DEVTYPE 00 DWT
+TA0FC 000:165.632   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+TA0FC 000:166.003   CPU_ReadMem(4 bytes @ 0xE0002FBC)
+TA0FC 000:166.256   CPU_ReadMem(4 bytes @ 0xE0002FCC)
+TA0FC 000:166.521   [1][2]: E0002000 CID B105900D PID 000BBD21 DEVARCH 47701A03 DEVTYPE 00 FPB
+TA0FC 000:166.545   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+TA0FC 000:166.910   CPU_ReadMem(4 bytes @ 0xE0000FBC)
+TA0FC 000:167.154   CPU_ReadMem(4 bytes @ 0xE0000FCC)
+TA0FC 000:167.364   [1][3]: E0000000 CID B105900D PID 000BBD21 DEVARCH 47701A01 DEVTYPE 43 ITM
+TA0FC 000:167.373   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+TA0FC 000:167.713   CPU_ReadMem(4 bytes @ 0xE0041FBC)
+TA0FC 000:167.943   CPU_ReadMem(4 bytes @ 0xE0041FCC)
+TA0FC 000:168.195   [1][5]: E0041000 CID B105900D PID 002BBD21 DEVARCH 47724A13 DEVTYPE 13 ETM
+TA0FC 000:168.204   CPU_ReadMem(32 bytes @ 0xE0042FE0)
+TA0FC 000:168.537   CPU_ReadMem(4 bytes @ 0xE0042FBC)
+TA0FC 000:168.765   CPU_ReadMem(4 bytes @ 0xE0042FCC)
+TA0FC 000:169.005   [1][6]: E0042000 CID B105900D PID 000BBD21 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+TA0FC 000:169.045   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:169.278   Data:  01 00 10 01
+TA0FC 000:169.287   Debug reg: DHCSR
+TA0FC 000:169.296 - 28.094ms returns 0
+TA0FC 000:169.344 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+TA0FC 000:169.352   CPU_ReadMem(4 bytes @ 0x400E002C)
+TA0FC 000:169.566   Data:  02 00 00 00
+TA0FC 000:169.581 - 0.237ms returns 0
+TA0FC 000:169.607 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:169.616   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:169.818   Data:  01 00 10 01
+TA0FC 000:169.827   Debug reg: DHCSR
+TA0FC 000:169.836 - 0.229ms returns 0
+TA0FC 000:169.860 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:169.867   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:170.082   Data:  01 00 10 01
+TA0FC 000:170.091   Debug reg: DHCSR
+TA0FC 000:170.100 - 0.240ms returns 0
+TA0FC 000:170.107 JLINK_ReadMem(0x400E001C, 0x4 Bytes, ...)
+TA0FC 000:170.113   CPU_ReadMem(4 bytes @ 0x400E001C)
+TA0FC 000:170.314   Data:  00 FC FF 00
+TA0FC 000:170.323 - 0.216ms returns 0
+TA0FC 000:170.331 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:170.338   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:170.540   Data:  01 00 10 01
+TA0FC 000:170.552   Debug reg: DHCSR
+TA0FC 000:170.561 - 0.229ms returns 0
+TA0FC 000:170.571 JLINK_ReadMem(0x400E0018, 0x4 Bytes, ...)
+TA0FC 000:170.579   CPU_ReadMem(4 bytes @ 0x400E0018)
+TA0FC 000:170.792   Data:  00 80 FF 00
+TA0FC 000:170.806 - 0.234ms returns 0
+TA0FC 000:170.817 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:170.825   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:171.028   Data:  01 00 10 01
+TA0FC 000:171.036   Debug reg: DHCSR
+TA0FC 000:171.045 - 0.227ms returns 0
+TA0FC 000:171.052 JLINK_ReadMem(0x400E0020, 0x4 Bytes, ...)
+TA0FC 000:171.058   CPU_ReadMem(4 bytes @ 0x400E0020)
+TA0FC 000:171.266   Data:  00 FC 00 00
+TA0FC 000:171.275 - 0.223ms returns 0
+TA0FC 000:171.283 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:171.290   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:171.856   Data:  01 00 10 01
+TA0FC 000:171.873   Debug reg: DHCSR
+TA0FC 000:171.882 - 0.598ms returns 0
+TA0FC 000:171.892 JLINK_ReadMem(0x400E0028, 0x4 Bytes, ...)
+TA0FC 000:171.900   CPU_ReadMem(4 bytes @ 0x400E0028)
+TA0FC 000:172.130   Data:  00 FC 1F 00
+TA0FC 000:172.160 - 0.268ms returns 0
+TA0FC 000:172.183 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:172.200   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:172.471   Data:  01 00 10 01
+TA0FC 000:172.490   Debug reg: DHCSR
+TA0FC 000:172.499 - 0.316ms returns 0
+TA0FC 000:172.509 JLINK_ReadMem(0x400E0024, 0x4 Bytes, ...)
+TA0FC 000:172.519   CPU_ReadMem(4 bytes @ 0x400E0024)
+TA0FC 000:172.782   Data:  00 E0 1F 00
+TA0FC 000:172.799 - 0.290ms returns 0
+TA0FC 000:172.813 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:172.822   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:173.042   Data:  01 00 10 01
+TA0FC 000:173.052   Debug reg: DHCSR
+TA0FC 000:173.062 - 0.249ms returns 0
+TA0FC 000:173.070 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+TA0FC 000:173.078   CPU_ReadMem(4 bytes @ 0x400E002C)
+TA0FC 000:173.318   Data:  02 00 00 00
+TA0FC 000:173.333 - 0.263ms returns 0
+TA0FC 000:173.345 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+TA0FC 000:173.354   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+TA0FC 000:173.601   Data:  01 00 10 01
+TA0FC 000:173.633   Debug reg: DHCSR
+TA0FC 000:173.650 - 0.304ms returns 0
+TA0FC 000:173.666 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+TA0FC 000:173.686   CPU_ReadMem(4 bytes @ 0x400E002C)
+TA0FC 000:173.965   Data:  02 00 00 00
+TA0FC 000:173.976 - 0.310ms returns 0
+TA0FC 000:177.138 JLINK_Close()
+TA0FC 000:189.717 - 12.577ms
+TA0FC 000:189.744   
+TA0FC 000:189.751   Closed
