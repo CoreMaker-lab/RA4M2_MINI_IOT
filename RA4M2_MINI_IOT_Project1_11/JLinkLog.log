@@ -1,0 +1,219 @@
+T8520 000:000.786   SEGGER J-Link V8.12f Log File
+T8520 000:000.885   DLL Compiled: Feb 12 2025 13:34:40
+T8520 000:000.892   Logging started @ 2025-11-09 14:51
+T8520 000:000.900   Process: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\e2-server-gdb.exe
+T8520 000:000.910 - 0.906ms 
+T8520 000:000.923 JLINK_GetDLLVersion()
+T8520 000:000.930 - 0.007ms returns 81206
+T8520 000:003.004 JLINK_OpenEx(...)
+T8520 000:009.949   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T8520 000:010.544   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T8520 000:010.771   Decompressing FW timestamp took 173 us
+T8520 000:016.221   Hardware: V9.60
+T8520 000:016.249   S/N: 69667700
+T8520 000:016.258   OEM: SEGGER
+T8520 000:016.267   Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+T8520 000:016.722   Bootloader: (FW returned invalid version)
+T8520 000:017.367   TELNET listener socket opened on port 19021
+T8520 000:017.581   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T8520 000:017.707   WEBSRV Webserver running on local port 19080
+T8520 000:018.054   Looking for J-Link GUI Server exe at: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\ARM\Segger_v8.12.6\JLinkGUIServer.exe
+T8520 000:018.246   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T8520 000:018.297   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T8520 000:058.287   J-Link GUI Server info: "J-Link GUI server V8.18 "
+T8520 000:065.929 - 62.915ms returns "O.K."
+T8520 000:066.086 JLINK_ExecCommand("ProjectFile=C:\Users\a8456\e2_studio\workspace\RA4M2_MINI_IOT_Project1_11/RA4M2_MINI_IOT_Project1_11.elf.jlink", ...). 
+T8520 000:262.019 - 195.937ms returns 0x00
+T8520 000:262.291 JLINK_ExecCommand("device=R7FA4M2AD", ...). 
+T8520 000:263.043   Flash bank @ 0x0100A100: SFL: Parsing sectorization info from ELF file
+T8520 000:263.069     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000010, .SectorStartAddr = 0x00000000
+T8520 000:263.079   FlashBank @0x0100A100: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+T8520 000:263.277   Flash bank @ 0x60000000: SFL: Parsing sectorization info from ELF file
+T8520 000:263.290     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T8520 000:267.088   Device "R7FA4M2AD" selected.
+T8520 000:267.548 - 5.238ms returns 0x00
+T8520 000:267.569 JLINK_TIF_GetAvailable(...)
+T8520 000:267.719 - 0.149ms 
+T8520 000:267.739 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T8520 000:268.322 - 0.581ms returns 0x00
+T8520 000:268.365 JLINK_SetSpeed(4000)
+T8520 000:268.451 - 0.088ms 
+T8520 000:268.487 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:268.640   ConfigTargetSettings() start
+T8520 000:268.677    J-Link Script File: Executing ConfigTargetSettings()
+T8520 000:268.696   Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+T8520 000:278.557   ConfigTargetSettings() end - Took 9.88ms
+T8520 000:278.575   InitTarget() start
+T8520 000:278.583    J-Link Script File: Executing InitTarget()
+T8520 000:278.591   SWD selected. Executing JTAG -> SWD switching sequence.
+T8520 000:279.930   DAP initialized successfully.
+T8520 000:279.955   Determining TrustZone configuration...
+T8520 000:281.199     Secure Debug: Enabled (SSD)
+T8520 000:281.246   Determining currently configured transfer type by reading the AHB-AP CSW register.
+T8520 000:282.326     --> Correct transfer type configured. Done.
+T8520 000:282.382   InitTarget() end - Took 3.79ms
+T8520 000:282.990   Found SW-DP with ID 0x6BA02477
+T8520 000:284.635   DPIDR: 0x6BA02477
+T8520 000:284.660   CoreSight SoC-400 or earlier
+T8520 000:284.672   Scanning AP map to find all available APs
+T8520 000:285.387   AP[2]: Stopped AP scan as end of AP map has been reached
+T8520 000:285.435   AP[0]: AHB-AP (IDR: 0x84770001, ADDR: 0x00000000)
+T8520 000:285.452   AP[1]: APB-AP (IDR: 0x54770002, ADDR: 0x01000000)
+T8520 000:285.468   Iterating through AP map to find AHB-AP to use
+T8520 000:286.247   AP[0]: Core found
+T8520 000:286.279   AP[0]: AHB-AP ROM base: 0xE00FE000
+T8520 000:286.647   CPUID register: 0x410FD214. Implementer code: 0x41 (ARM)
+T8520 000:286.670   Feature set: Mainline
+T8520 000:286.999   Cache: No cache
+T8520 000:287.045   Found Cortex-M33 r0p4, Little endian.
+T8520 000:287.314   -- Max. mem block: 0x00010A88
+T8520 000:287.793   
+  ***** Warning: 
+T8520 000:287.814   Cortex-M (ARMv8-M and later): The connected J-Link (S/N 69667700) uses an old firmware module that does not handle I/D-cache correctly. Proper debugging functionality cannot be guaranteed if cache is enabled
+T8520 000:287.886   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:288.160   CPU_ReadMem(4 bytes @ 0xE0002000)
+T8520 000:288.377   FPUnit: 8 code (BP) slots and 0 literal slots
+T8520 000:288.390   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T8520 000:288.639   CPU_ReadMem(4 bytes @ 0xE0001000)
+T8520 000:288.859   CPU_ReadMem(4 bytes @ 0xE0001000)
+T8520 000:289.157   CPU_ReadMem(4 bytes @ 0xE0001028)
+T8520 000:289.415   CPU_ReadMem(4 bytes @ 0xE0001038)
+T8520 000:289.670   CPU_ReadMem(4 bytes @ 0xE0001048)
+T8520 000:289.954   CPU_ReadMem(4 bytes @ 0xE0001058)
+T8520 000:290.208   CPU_WriteMem(4 bytes @ 0xE0001000)
+T8520 000:290.514   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T8520 000:290.781   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T8520 000:291.080   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T8520 000:291.353   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T8520 000:291.617   CPU_ReadMem(4 bytes @ 0xE000EFB8)
+T8520 000:291.847   Security extension: implemented
+T8520 000:291.858   Secure debug: enabled
+T8520 000:291.867   CoreSight components:
+T8520 000:291.875   ROMTbl[0] @ E00FE000
+T8520 000:291.884   CPU_ReadMem(64 bytes @ 0xE00FE000)
+T8520 000:292.398   CPU_ReadMem(32 bytes @ 0xE0044FE0)
+T8520 000:292.768   CPU_ReadMem(4 bytes @ 0xE0044FBC)
+T8520 000:293.017   CPU_ReadMem(4 bytes @ 0xE0044FCC)
+T8520 000:293.250   [0][0]: E0044000 CID B105900D PID 005BB906 DEVARCH 00000000 DEVTYPE 14 CTI (?)
+T8520 000:293.293   CPU_ReadMem(32 bytes @ 0xE0047FE0)
+T8520 000:293.669   CPU_ReadMem(4 bytes @ 0xE0047FBC)
+T8520 000:293.916   CPU_ReadMem(4 bytes @ 0xE0047FCC)
+T8520 000:294.159   [0][1]: E0047000 CID B105900D PID 003BB908 DEVARCH 00000000 DEVTYPE 12 CSTF
+T8520 000:294.192   CPU_ReadMem(32 bytes @ 0xE0048FE0)
+T8520 000:294.554   CPU_ReadMem(4 bytes @ 0xE0048FBC)
+T8520 000:294.767   CPU_ReadMem(4 bytes @ 0xE0048FCC)
+T8520 000:295.000   [0][2]: E0048000 CID B105900D PID 001BB961 DEVARCH 00000000 DEVTYPE 21 TMC
+T8520 000:295.022   CPU_ReadMem(32 bytes @ 0xE0049FE0)
+T8520 000:295.389   [0][3]: E0049000 CID B105F00D PID 001BB101 TSG
+T8520 000:295.403   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+T8520 000:295.765   CPU_ReadMem(4 bytes @ 0xE0040FBC)
+T8520 000:296.017   CPU_ReadMem(4 bytes @ 0xE0040FCC)
+T8520 000:296.248   [0][4]: E0040000 CID B105900D PID 000BBD21 DEVARCH 00000000 DEVTYPE 11 TPIU
+T8520 000:296.289   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T8520 000:296.666   [0][5]: E00FF000 CID B105100D PID 000BB4C9 ROM Table
+T8520 000:296.682   ROMTbl[1] @ E00FF000
+T8520 000:296.691   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T8520 000:297.214   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T8520 000:297.652   CPU_ReadMem(4 bytes @ 0xE000EFBC)
+T8520 000:297.959   CPU_ReadMem(4 bytes @ 0xE000EFCC)
+T8520 000:298.251   [1][0]: E000E000 CID B105900D PID 000BBD21 DEVARCH 47702A04 DEVTYPE 00 Cortex-M33
+T8520 000:298.282   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T8520 000:298.681   CPU_ReadMem(4 bytes @ 0xE0001FBC)
+T8520 000:298.952   CPU_ReadMem(4 bytes @ 0xE0001FCC)
+T8520 000:299.205   [1][1]: E0001000 CID B105900D PID 000BBD21 DEVARCH 47701A02 DEVTYPE 00 DWT
+T8520 000:299.236   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T8520 000:299.619   CPU_ReadMem(4 bytes @ 0xE0002FBC)
+T8520 000:299.904   CPU_ReadMem(4 bytes @ 0xE0002FCC)
+T8520 000:300.346   [1][2]: E0002000 CID B105900D PID 000BBD21 DEVARCH 47701A03 DEVTYPE 00 FPB
+T8520 000:300.376   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+T8520 000:300.767   CPU_ReadMem(4 bytes @ 0xE0000FBC)
+T8520 000:301.040   CPU_ReadMem(4 bytes @ 0xE0000FCC)
+T8520 000:301.328   [1][3]: E0000000 CID B105900D PID 000BBD21 DEVARCH 47701A01 DEVTYPE 43 ITM
+T8520 000:301.352   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+T8520 000:301.702   CPU_ReadMem(4 bytes @ 0xE0041FBC)
+T8520 000:301.957   CPU_ReadMem(4 bytes @ 0xE0041FCC)
+T8520 000:302.178   [1][5]: E0041000 CID B105900D PID 002BBD21 DEVARCH 47724A13 DEVTYPE 13 ETM
+T8520 000:302.198   CPU_ReadMem(32 bytes @ 0xE0042FE0)
+T8520 000:302.629   CPU_ReadMem(4 bytes @ 0xE0042FBC)
+T8520 000:302.937   CPU_ReadMem(4 bytes @ 0xE0042FCC)
+T8520 000:303.185   [1][6]: E0042000 CID B105900D PID 000BBD21 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+T8520 000:303.228   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:303.441   Data:  03 00 13 00
+T8520 000:303.455   Debug reg: DHCSR
+T8520 000:303.464 - 34.977ms returns 0
+T8520 000:303.478 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T8520 000:303.486   CPU_ReadMem(4 bytes @ 0x400E002C)
+T8520 000:303.751   Data:  02 00 00 00
+T8520 000:303.765 - 0.287ms returns 0
+T8520 000:303.820 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:303.830   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:304.057   Data:  03 00 13 00
+T8520 000:304.071   Debug reg: DHCSR
+T8520 000:304.080 - 0.259ms returns 0
+T8520 000:304.104 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:304.112   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:304.328   Data:  03 00 13 00
+T8520 000:304.353   Debug reg: DHCSR
+T8520 000:304.362 - 0.257ms returns 0
+T8520 000:304.372 JLINK_ReadMem(0x400E001C, 0x4 Bytes, ...)
+T8520 000:304.382   CPU_ReadMem(4 bytes @ 0x400E001C)
+T8520 000:304.620   Data:  00 FC FF 00
+T8520 000:304.637 - 0.264ms returns 0
+T8520 000:304.649 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:304.657   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:304.890   Data:  03 00 13 00
+T8520 000:304.907   Debug reg: DHCSR
+T8520 000:304.916 - 0.267ms returns 0
+T8520 000:304.923 JLINK_ReadMem(0x400E0018, 0x4 Bytes, ...)
+T8520 000:304.930   CPU_ReadMem(4 bytes @ 0x400E0018)
+T8520 000:305.152   Data:  00 80 FF 00
+T8520 000:305.162 - 0.239ms returns 0
+T8520 000:305.171 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:305.177   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:305.402   Data:  03 00 13 00
+T8520 000:305.415   Debug reg: DHCSR
+T8520 000:305.425 - 0.254ms returns 0
+T8520 000:305.432 JLINK_ReadMem(0x400E0020, 0x4 Bytes, ...)
+T8520 000:305.440   CPU_ReadMem(4 bytes @ 0x400E0020)
+T8520 000:305.642   Data:  00 FC 00 00
+T8520 000:305.654 - 0.222ms returns 0
+T8520 000:305.663 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:305.670   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:305.914   Data:  03 00 13 00
+T8520 000:305.926   Debug reg: DHCSR
+T8520 000:305.935 - 0.271ms returns 0
+T8520 000:305.942 JLINK_ReadMem(0x400E0028, 0x4 Bytes, ...)
+T8520 000:305.948   CPU_ReadMem(4 bytes @ 0x400E0028)
+T8520 000:306.157   Data:  00 FC 1F 00
+T8520 000:306.176 - 0.234ms returns 0
+T8520 000:306.188 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:306.197   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:306.417   Data:  03 00 13 00
+T8520 000:306.429   Debug reg: DHCSR
+T8520 000:306.438 - 0.249ms returns 0
+T8520 000:306.448 JLINK_ReadMem(0x400E0024, 0x4 Bytes, ...)
+T8520 000:306.457   CPU_ReadMem(4 bytes @ 0x400E0024)
+T8520 000:306.663   Data:  00 E0 1F 00
+T8520 000:306.674 - 0.225ms returns 0
+T8520 000:306.684 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:306.691   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:306.917   Data:  03 00 13 00
+T8520 000:306.930   Debug reg: DHCSR
+T8520 000:306.939 - 0.255ms returns 0
+T8520 000:306.946 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T8520 000:306.952   CPU_ReadMem(4 bytes @ 0x400E002C)
+T8520 000:307.157   Data:  02 00 00 00
+T8520 000:307.168 - 0.222ms returns 0
+T8520 000:307.176 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T8520 000:307.182   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T8520 000:307.392   Data:  03 00 13 00
+T8520 000:307.406   Debug reg: DHCSR
+T8520 000:307.416 - 0.240ms returns 0
+T8520 000:307.429 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T8520 000:307.436   CPU_ReadMem(4 bytes @ 0x400E002C)
+T8520 000:307.665   Data:  02 00 00 00
+T8520 000:307.676 - 0.247ms returns 0
+T8520 000:312.874 JLINK_Close()
+T8520 000:323.985 - 11.109ms
+T8520 000:324.019   
+T8520 000:324.026   Closed
