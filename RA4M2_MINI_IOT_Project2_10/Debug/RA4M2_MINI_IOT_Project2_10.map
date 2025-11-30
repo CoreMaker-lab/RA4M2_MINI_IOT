@@ -2550,28 +2550,28 @@ END GROUP
                 0x20000f28                        . = ALIGN (0x4)
                 0x20000f28                        __bss_end__ = .
 
-.heap           0x20000f28     0x4000
+.heap           0x20000f28     0x2000
                 0x20000f28                        . = ALIGN (0x8)
                 0x20000f28                        __HeapBase = .
  *(.heap)
- .heap          0x20000f28     0x4000 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
-                0x20004f28                        __HeapLimit = .
+ .heap          0x20000f28     0x2000 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x20002f28                        __HeapLimit = .
 
-.stack_dummy    0x20004f28     0x6000
-                0x20004f28                        . = ALIGN (0x8)
-                0x20004f28                        __StackLimit = .
+.stack_dummy    0x20002f28     0x4000
+                0x20002f28                        . = ALIGN (0x8)
+                0x20002f28                        __StackLimit = .
  *(.stack)
- .stack         0x20004f28     0x6000 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
-                0x2000af28                        __StackTop = .
+ .stack         0x20002f28     0x4000 ./ra/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o
+                0x20006f28                        __StackTop = .
  *(.stack*)
-                0x2000af28                        __StackTopAll = .
-                0x2000af28                        PROVIDE (__stack = __StackTopAll)
-                0x2000af28                        __RAM_segment_used_end__ = ALIGN (__StackTopAll, 0x4)
-                0x2000b000                        __tz_RAM_C = DEFINED (RAM_NSC_START)?ABSOLUTE ((RAM_NSC_START - RAM_NS_BUFFER_BLOCK_LENGTH)):__RESERVE_NS_RAM?ABSOLUTE (RAM_NS_BUFFER_BLOCK_START):ALIGN (__RAM_segment_used_end__, 0x400)
-                0x2000c000                        __tz_RAM_N = DEFINED (RAM_NS_START)?ABSOLUTE ((RAM_NS_START - RAM_NS_BUFFER_BLOCK_LENGTH)):__RESERVE_NS_RAM?ABSOLUTE (RAM_NS_BUFFER_BLOCK_START):ALIGN (__tz_RAM_C, 0x2000)
+                0x20006f28                        __StackTopAll = .
+                0x20006f28                        PROVIDE (__stack = __StackTopAll)
+                0x20006f28                        __RAM_segment_used_end__ = ALIGN (__StackTopAll, 0x4)
+                0x20007000                        __tz_RAM_C = DEFINED (RAM_NSC_START)?ABSOLUTE ((RAM_NSC_START - RAM_NS_BUFFER_BLOCK_LENGTH)):__RESERVE_NS_RAM?ABSOLUTE (RAM_NS_BUFFER_BLOCK_START):ALIGN (__RAM_segment_used_end__, 0x400)
+                0x20008000                        __tz_RAM_N = DEFINED (RAM_NS_START)?ABSOLUTE ((RAM_NS_START - RAM_NS_BUFFER_BLOCK_LENGTH)):__RESERVE_NS_RAM?ABSOLUTE (RAM_NS_BUFFER_BLOCK_START):ALIGN (__tz_RAM_C, 0x2000)
 
-.ns_buffer      0x2000af28        0x0
-                0x2000af28                        . = __RESERVE_NS_RAM?ABSOLUTE ((RAM_NS_BUFFER_START & 0xffffffe0)):.
+.ns_buffer      0x20006f28        0x0
+                0x20006f28                        . = __RESERVE_NS_RAM?ABSOLUTE ((RAM_NS_BUFFER_START & 0xffffffe0)):.
  *(.ns_buffer*)
 
 .data_flash     0x08000000        0x0

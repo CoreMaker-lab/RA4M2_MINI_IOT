@@ -52,8 +52,8 @@ FSP Configuration
     
   RA4M2 event data
   RA Common
-    Main stack size (bytes): 0x6000
-    Heap size (bytes): 0x4000
+    Main stack size (bytes): 0x4000
+    Heap size (bytes): 0x2000
     MCU Vcc (mV): 3300
     Parameter checking: Disabled
     Assert Failures: Return FSP_ERR_ASSERTION
