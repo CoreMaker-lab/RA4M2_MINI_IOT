@@ -1,180 +1,231 @@
 # -*- coding: utf-8 -*-
 """
 voice_reassemble.py
-从阿里云 IoT 的 voice_up Topic 订阅语音分片，
-按 sid/idx 重新拼成完整 PCM，并保存为 session-<sid>.wav
 
-当前适配 MCU 端上报格式：
-  {"sid":1,"idx":0,"total":200,"sr":8000,"pcm_b64":"......"}
-采样：8kHz, 16bit, mono
+功能：
+- 作为 MQTT 客户端连接到本地 Mosquitto (127.0.0.1:1884)
+- 订阅 ESP8266 上传的语音分片 JSON（含 sid/idx/total/sr/pcm_b64）
+- 按 sid/idx 重组为完整的 uint16 采样流
+- 按 12bit ADC 规则映射为有符号 16bit PCM（v12 - 2048 再左移 4bit）
+- 做一次 5 点滑动平均，轻微平滑高频噪声
+- 输出单声道 16bit/8kHz 的 WAV：voice_sessions/session-<sid>.wav
 """
 
 import os
 import json
-import time
 import base64
 import wave
+import struct
+import time
+from typing import Dict, Any
 
 import paho.mqtt.client as mqtt
 
-# ========= 1. 根据你的设备信息填写这里 =========
-# 和 MCU 一样的实例：
-# MQTT_BROKER   = "a1fabJdOLz0.iot-as-mqtt.cn-shanghai.aliyuncs.com"
-
+# ---------- MQTT 配置 ----------
 MQTT_BROKER   = "127.0.0.1"
-MQTT_PORT     = 1883
+MQTT_PORT     = 1884
+MQTT_CLIENTID = "PC-voice-reassembler"
 
-# 这里先直接用你 RA4M2 那个设备的用户名/密码，方便验证
-# MQTT_USERNAME = "tHV3SyEhr3BrH7JwvMuq&a1fabJdOLz0"
-# MQTT_PASSWORD = "61ee1d76e4bcb1a3363bf440d4573ffd4fde4adc48b032bac58bab0e0bda4984"
+# 调试阶段直接订阅全部，后面你也可以改回具体 Topic
+SUBSCRIBE_TOPIC = "#"
 
-# MQTT_USERNAME = None             # 先不用用户名密码
-# MQTT_PASSWORD = None
+OUTPUT_DIR = "voice_sessions"
 
-MQTT_USERNAME = "tHV3SyEhr3BrH7JwvMuq&a1fabJdOLz0"
-MQTT_PASSWORD = "e1df04bd20bab2c47ee2457bac232122e094267874c3ef2a35108bea5ac70e34"
-
-
-# PC 这边自己起一个 clientId，千万不要和板子上的一样
-# MQTT_CLIENTID = "a1fabJdOLz0.tHV3SyEhr3BrH7JwvMuq|securemode=2,signmethod=hmacsha256,timestamp=1765119201823|"
-MQTT_CLIENTID = "a1fabJdOLz0.tHV3SyEhr3BrH7JwvMuq|securemode=2\\,signmethod=hmacsha256\\,timestamp=1761066873178|"
-
-# 订阅的 Topic，必须和 MCU 上报的 MQTT_VOICE_TOPIC 完全一致
-VOICE_UP_TOPIC = "/a1fabJdOLz0/tHV3SyEhr3BrH7JwvMuq/user/voice_up"
-
-# 输出 wav 的目录
-OUTPUT_DIR = "./voice_sessions"
-
-# ========= 2. 会话缓存：按 sid 聚合 =========
-
-# sessions:
-#   key: sid
-#   value: {
-#       "total": <total_chunks>,
-#       "sr":    <sample_rate>,
-#       "chunks": { idx: pcm_bytes, ... },
-#       "ts":    <first_receive_time>
-#   }
-sessions = {}
+# sid -> { "total":int, "sr":int, "chunks":{idx:bytes}, "created_at":float }
+sessions: Dict[int, Dict[str, Any]] = {}
 
 
-def ensure_dir(path: str):
+def ensure_dir(path: str) -> None:
     if not os.path.exists(path):
         os.makedirs(path, exist_ok=True)
 
 
-# ========= 3. MQTT 回调 =========
+def u16_to_s16_simple(raw_u16_bytes: bytes) -> bytes:
+    """
+    最朴素、最贴近硬件的一版 12bit -> 16bit 映射：
 
-def on_connect(client, userdata, flags, rc, properties=None):
-    print("[MQTT] Connected, rc =", rc)
-    if rc == 0:
-        client.subscribe(VOICE_UP_TOPIC, qos=0)
-        print(f"[MQTT] Subscribed to: {VOICE_UP_TOPIC}")
-    else:
-        print("[MQTT] Connect failed, rc =", rc)
+      1) 解成 uint16 数组
+      2) 只取低 12bit：v12 = v & 0x0FFF
+      3) 以 2048 为中心：center = v12 - 2048
+      4) 左移 4bit（*16），得到有符号 16bit：x = center << 4
+      5) 做一次 5 点滑动平均，轻微平滑高频噪声
+
+    这样做出来的波形和 MCU 侧 DAC 播放的理论波形是一致的，
+    只是在 PC 端额外加了一点点平滑，让听感更接近板子上小喇叭。
+    """
+    n = len(raw_u16_bytes) // 2
+    if n == 0:
+        return b""
+
+    u16_samples = struct.unpack("<%dH" % n, raw_u16_bytes)
+
+    v_min = min(u16_samples)
+    v_max = max(u16_samples)
+    v_mean = sum(u16_samples) / n
+    print(f"[STAT] u16: samples={n}, min={v_min}, max={v_max}, mean={v_mean:.2f}")
+
+    # 第一步：12bit -> 16bit 线性映射
+    s16 = []
+    for v in u16_samples:
+        v12 = v & 0x0FFF        # 只保留 12bit
+        center = v12 - 2048     # 以 2048 为 0
+        x = center << 4         # *16, 映射到 -32768..+32752 附近
+        if x > 32767:
+            x = 32767
+        elif x < -32768:
+            x = -32768
+        s16.append(x)
+
+    # 第二步：简单 5 点滑动平均，模拟一点点低通滤波
+    if n >= 5:
+        smooth = [0] * n
+        # 头尾简单处理，不参与完整窗口
+        smooth[0] = s16[0]
+        smooth[1] = (s16[0] + s16[1]) // 2
+        smooth[-1] = s16[-1]
+        smooth[-2] = (s16[-1] + s16[-2]) // 2
+        for i in range(2, n - 2):
+            smooth[i] = (
+                s16[i - 2] + s16[i - 1] + s16[i] + s16[i + 1] + s16[i + 2]
+            ) // 5
+        s16 = smooth
+
+    return struct.pack("<%dh" % n, *s16)
 
 
-def on_message(client, userdata, msg):
-    print(f"\n=== MQTT message on {msg.topic}, len={len(msg.payload)} ===")
-    try:
-        text = msg.payload.decode("utf-8").strip()
-        print("[DEBUG] Payload text (head):", text[:120], "...")
-        data = json.loads(text)
-    except Exception as e:
-        print("[ERROR] JSON decode failed:", e)
-        return
-
-    sid   = data.get("sid")
-    idx   = data.get("idx")
-    total = data.get("total")
-    sr    = data.get("sr", 8000)
-    b64   = data.get("pcm_b64", "")
-
-    if sid is None or idx is None or total is None:
-        print("[WARN] Missing sid/idx/total in payload, skip.")
-        return
-
-    try:
-        pcm_bytes = base64.b64decode(b64)
-    except Exception as e:
-        print("[ERROR] Base64 decode failed:", e)
-        return
-
+def save_session_to_wav(sid: int) -> None:
+    """把某个 sid 的所有分片按 idx 排好顺序，拼成一个 WAV 文件。"""
     sess = sessions.get(sid)
-    if sess is None:
-        sess = {
-            "total":  int(total),
-            "sr":     int(sr),
-            "chunks": {},
-            "ts":     time.time(),
-        }
-        sessions[sid] = sess
+    if not sess:
+        print(f"[WARN] save_session_to_wav: session {sid} not found")
+        return
 
-    sess["chunks"][idx] = pcm_bytes
-    print(f"[INFO] Session {sid}: got chunk {idx+1}/{sess['total']}, bytes={len(pcm_bytes)}")
-
-    # 是否已经收齐所有分片
-    if len(sess["chunks"]) == sess["total"]:
-        print(f"[INFO] Session {sid} complete, assembling WAV...")
-        save_session_to_wav(sid, sess)
-        # 用完删除，防止越攒越多
-        del sessions[sid]
-
-
-# ========= 4. 拼接 PCM + 写 WAV =========
-
-def save_session_to_wav(sid, sess):
-    ensure_dir(OUTPUT_DIR)
-
-    total = sess["total"]
-    sr    = sess["sr"]
+    total  = sess["total"]
+    sr     = sess["sr"]
     chunks = sess["chunks"]
 
-    # 按 idx 顺序拼接
-    pcm_list = []
+    if len(chunks) != total:
+        print(f"[WARN] Session {sid}: expected {total} chunks, got {len(chunks)}")
+
+    ordered = []
     missing = []
     for i in range(total):
         if i in chunks:
-            pcm_list.append(chunks[i])
+            ordered.append(chunks[i])
         else:
             missing.append(i)
 
     if missing:
         print(f"[WARN] Session {sid} missing chunks: {missing}")
-        # 可以视情况继续等，但这里先直接跳过
+
+    raw_u16 = b"".join(ordered)
+    print(f"[INFO] Session {sid}: raw bytes={len(raw_u16)}, "
+          f"samples={len(raw_u16)//2}, sr={sr}")
+
+    pcm_s16 = u16_to_s16_simple(raw_u16)
+
+    ensure_dir(OUTPUT_DIR)
+    path = os.path.join(OUTPUT_DIR, f"session-{sid}.wav")
+    with wave.open(path, "wb") as wf:
+        wf.setnchannels(1)        # 单声道
+        wf.setsampwidth(2)        # 16bit
+        wf.setframerate(sr)       # ESP 上报的 sr（你现在是 8000）
+        wf.writeframes(pcm_s16)
+
+    print(f"[OK] Wrote WAV: {path} (frames={len(pcm_s16)//2})")
+
+    # 用完清内存
+    del sessions[sid]
+
+
+# ---------- MQTT 回调 ----------
+
+def on_connect(client, userdata, flags, rc):
+    print("[MQTT] Connected, rc =", rc)
+    if rc == 0:
+        result, mid = client.subscribe(SUBSCRIBE_TOPIC, qos=0)
+        print(f"[MQTT] Subscribe result={result}, mid={mid}, topic='{SUBSCRIBE_TOPIC}'")
+    else:
+        print("[MQTT] Connect failed, rc =", rc)
+
+
+def on_message(client, userdata, msg):
+    print(f"\n=== MQTT message on '{msg.topic}', payload_len={len(msg.payload)} ===")
+    try:
+        text = msg.payload.decode("utf-8", errors="ignore")
+        print("[DEBUG] head:", text[:120].replace("\n", "\\n"), "...")
+    except Exception as e:
+        print("[ERROR] decode failed:", e)
         return
 
-    pcm_all = b"".join(pcm_list)
-    print(f"[INFO] Session {sid}: final PCM bytes = {len(pcm_all)}")
+    # 解析 JSON
+    try:
+        data = json.loads(text)
+    except Exception as e:
+        print("[WARN] not JSON, ignore:", e)
+        return
 
-    out_path = os.path.join(OUTPUT_DIR, f"session-{sid}.wav")
-    with wave.open(out_path, "wb") as wf:
-        wf.setnchannels(1)      # mono
-        wf.setsampwidth(2)      # 16bit
-        wf.setframerate(sr)     # 8000
-        wf.writeframes(pcm_all)
+    required = {"sid", "idx", "total", "pcm_b64"}
+    if not required.issubset(data.keys()):
+        print("[WARN] JSON missing keys, ignore. keys:", data.keys())
+        return
 
-    print(f"[OK] Wrote WAV file: {out_path}")
+    try:
+        sid   = int(data["sid"])
+        idx   = int(data["idx"])
+        total = int(data["total"])
+        sr    = int(data.get("sr", 8000))
+        b64   = data["pcm_b64"]
+    except Exception as e:
+        print("[ERROR] JSON fields invalid:", e)
+        return
+
+    try:
+        chunk = base64.b64decode(b64)
+    except Exception as e:
+        print("[ERROR] base64 decode failed:", e)
+        return
+
+    sess = sessions.get(sid)
+    if sess is None:
+        sess = {"total": total, "sr": sr, "chunks": {}, "created_at": time.time()}
+        sessions[sid] = sess
+        print(f"[INFO] New session {sid}: total={total}, sr={sr}")
+    else:
+        if sess["total"] != total:
+            print(f"[WARN] Session {sid}: total changed {sess['total']} -> {total}")
+            sess["total"] = total
+        if sess["sr"] != sr:
+            print(f"[WARN] Session {sid}: sr changed {sess['sr']} -> {sr}")
+            sess["sr"] = sr
+
+    prev = sess["chunks"].get(idx)
+    sess["chunks"][idx] = chunk
+    got = len(sess["chunks"])
+    print(f"[INFO] Session {sid}: got chunk {idx}/{total-1}, unique_chunks={got}")
+    if prev is not None and len(prev) != len(chunk):
+        print(f"[WARN] Session {sid}: chunk {idx} overwritten, len {len(prev)} -> {len(chunk)}")
+
+    if got >= total:
+        save_session_to_wav(sid)
 
 
-# ========= 5. 主函数 =========
+# ---------- 主函数 ----------
 
 def main():
     ensure_dir(OUTPUT_DIR)
 
-    client = mqtt.Client(
-        client_id=MQTT_CLIENTID,
-        clean_session=True,
-        protocol=mqtt.MQTTv311,
-    )
-    client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
+    # 显式指定 Callback API v1，适配你现在的 paho 版本
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1,
+                         client_id=MQTT_CLIENTID)
+    client.enable_logger()
+
     client.on_connect = on_connect
     client.on_message = on_message
 
     print(f"[MQTT] Connecting to {MQTT_BROKER}:{MQTT_PORT} ...")
     client.connect(MQTT_BROKER, MQTT_PORT, keepalive=60)
-
-    print("[MQTT] Loop forever, waiting for voice_up messages ...")
+    print("[MQTT] Loop forever, waiting for messages ...")
     client.loop_forever()
 
 
