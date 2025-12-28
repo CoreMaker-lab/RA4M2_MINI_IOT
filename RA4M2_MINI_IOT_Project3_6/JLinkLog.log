@@ -1,0 +1,212 @@
+T481C 000:000.554   SEGGER J-Link V8.12f Log File
+T481C 000:000.656   DLL Compiled: Feb 12 2025 13:34:40
+T481C 000:000.670   Logging started @ 2025-12-28 07:08
+T481C 000:000.683   Process: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\e2-server-gdb.exe
+T481C 000:000.702 - 0.699ms 
+T481C 000:000.722 JLINK_GetDLLVersion()
+T481C 000:000.735 - 0.014ms returns 81206
+T481C 000:002.717 JLINK_OpenEx(...)
+T481C 000:010.016   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T481C 000:010.599   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T481C 000:010.716   Decompressing FW timestamp took 89 us
+T481C 000:016.037   Hardware: V9.60
+T481C 000:016.067   S/N: 69667700
+T481C 000:016.086   OEM: SEGGER
+T481C 000:017.277   Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+T481C 000:017.687   Bootloader: (FW returned invalid version)
+T481C 000:018.217   TELNET listener socket opened on port 19021
+T481C 000:018.380   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T481C 000:018.467   WEBSRV Webserver running on local port 19080
+T481C 000:018.811   Looking for J-Link GUI Server exe at: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\ARM\Segger_v8.12.6\JLinkGUIServer.exe
+T481C 000:019.152   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T481C 000:019.252   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T481C 000:068.777   J-Link GUI Server info: "J-Link GUI server V8.18 "
+T481C 000:069.269 - 66.546ms returns "O.K."
+T481C 000:069.382 JLINK_ExecCommand("ProjectFile=C:\Users\a8456\e2_studio\workspace\RA4M2_MINI_IOT_Project3_6/RA4M2_MINI_IOT_Project3_6.elf.jlink", ...). 
+T481C 000:093.482 - 24.107ms returns 0x00
+T481C 000:093.723 JLINK_ExecCommand("device=R7FA4M2AD", ...). 
+T481C 000:093.849   Flash bank @ 0x0100A100: SFL: Parsing sectorization info from ELF file
+T481C 000:093.859     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000010, .SectorStartAddr = 0x00000000
+T481C 000:093.870   FlashBank @0x0100A100: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+T481C 000:094.057   Flash bank @ 0x60000000: SFL: Parsing sectorization info from ELF file
+T481C 000:094.067     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T481C 000:096.730   Device "R7FA4M2AD" selected.
+T481C 000:096.990 - 3.255ms returns 0x00
+T481C 000:097.005 JLINK_TIF_GetAvailable(...)
+T481C 000:097.131 - 0.126ms 
+T481C 000:097.146 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T481C 000:097.708 - 0.562ms returns 0x00
+T481C 000:097.725 JLINK_SetSpeed(4000)
+T481C 000:097.818 - 0.094ms 
+T481C 000:097.844 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:098.015   ConfigTargetSettings() start
+T481C 000:098.026    J-Link Script File: Executing ConfigTargetSettings()
+T481C 000:098.034   Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+T481C 000:102.615   ConfigTargetSettings() end - Took 4.58ms
+T481C 000:102.626   InitTarget() start
+T481C 000:102.635    J-Link Script File: Executing InitTarget()
+T481C 000:102.642   SWD selected. Executing JTAG -> SWD switching sequence.
+T481C 000:103.896   DAP initialized successfully.
+T481C 000:103.907   Determining TrustZone configuration...
+T481C 000:104.563     Secure Debug: Enabled (SSD)
+T481C 000:104.572   Determining currently configured transfer type by reading the AHB-AP CSW register.
+T481C 000:105.029     --> Correct transfer type configured. Done.
+T481C 000:105.038   InitTarget() end - Took 2.40ms
+T481C 000:105.484   Found SW-DP with ID 0x6BA02477
+T481C 000:106.997   DPIDR: 0x6BA02477
+T481C 000:107.028   CoreSight SoC-400 or earlier
+T481C 000:107.052   Scanning AP map to find all available APs
+T481C 000:107.797   AP[2]: Stopped AP scan as end of AP map has been reached
+T481C 000:107.813   AP[0]: AHB-AP (IDR: 0x84770001, ADDR: 0x00000000)
+T481C 000:107.821   AP[1]: APB-AP (IDR: 0x54770002, ADDR: 0x01000000)
+T481C 000:107.830   Iterating through AP map to find AHB-AP to use
+T481C 000:108.611   AP[0]: Core found
+T481C 000:108.620   AP[0]: AHB-AP ROM base: 0xE00FE000
+T481C 000:108.986   CPUID register: 0x410FD214. Implementer code: 0x41 (ARM)
+T481C 000:108.995   Feature set: Mainline
+T481C 000:109.358   Cache: No cache
+T481C 000:109.368   Found Cortex-M33 r0p4, Little endian.
+T481C 000:109.602   -- Max. mem block: 0x00010C40
+T481C 000:110.010   
+  ***** Warning: 
+T481C 000:110.019   Cortex-M (ARMv8-M and later): The connected J-Link (S/N 69667700) uses an old firmware module that does not handle I/D-cache correctly. Proper debugging functionality cannot be guaranteed if cache is enabled
+T481C 000:110.033   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:110.244   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T481C 000:110.463   CPU_ReadMem(4 bytes @ 0xE0002000)
+T481C 000:110.667   FPUnit: 8 code (BP) slots and 0 literal slots
+T481C 000:110.676   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T481C 000:110.887   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T481C 000:111.129   CPU_ReadMem(4 bytes @ 0xE0001000)
+T481C 000:111.417   CPU_ReadMem(4 bytes @ 0xE0001000)
+T481C 000:111.618   CPU_ReadMem(4 bytes @ 0xE0001028)
+T481C 000:111.848   CPU_ReadMem(4 bytes @ 0xE0001038)
+T481C 000:112.076   CPU_ReadMem(4 bytes @ 0xE0001048)
+T481C 000:112.292   CPU_ReadMem(4 bytes @ 0xE0001058)
+T481C 000:112.598   CPU_WriteMem(4 bytes @ 0xE0001000)
+T481C 000:112.881   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T481C 000:113.110   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T481C 000:113.332   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T481C 000:113.598   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T481C 000:113.819   CPU_ReadMem(4 bytes @ 0xE000EFB8)
+T481C 000:114.040   Security extension: implemented
+T481C 000:114.049   Secure debug: enabled
+T481C 000:114.060   CoreSight components:
+T481C 000:114.068   ROMTbl[0] @ E00FE000
+T481C 000:114.077   CPU_ReadMem(64 bytes @ 0xE00FE000)
+T481C 000:114.551   CPU_ReadMem(32 bytes @ 0xE0044FE0)
+T481C 000:114.899   CPU_ReadMem(4 bytes @ 0xE0044FBC)
+T481C 000:115.109   CPU_ReadMem(4 bytes @ 0xE0044FCC)
+T481C 000:115.338   [0][0]: E0044000 CID B105900D PID 005BB906 DEVARCH 00000000 DEVTYPE 14 CTI (?)
+T481C 000:115.355   CPU_ReadMem(32 bytes @ 0xE0047FE0)
+T481C 000:115.730   CPU_ReadMem(4 bytes @ 0xE0047FBC)
+T481C 000:115.938   CPU_ReadMem(4 bytes @ 0xE0047FCC)
+T481C 000:116.167   [0][1]: E0047000 CID B105900D PID 003BB908 DEVARCH 00000000 DEVTYPE 12 CSTF
+T481C 000:116.178   CPU_ReadMem(32 bytes @ 0xE0048FE0)
+T481C 000:116.544   CPU_ReadMem(4 bytes @ 0xE0048FBC)
+T481C 000:116.749   CPU_ReadMem(4 bytes @ 0xE0048FCC)
+T481C 000:116.973   [0][2]: E0048000 CID B105900D PID 001BB961 DEVARCH 00000000 DEVTYPE 21 TMC
+T481C 000:116.987   CPU_ReadMem(32 bytes @ 0xE0049FE0)
+T481C 000:117.353   [0][3]: E0049000 CID B105F00D PID 001BB101 TSG
+T481C 000:117.362   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+T481C 000:117.706   CPU_ReadMem(4 bytes @ 0xE0040FBC)
+T481C 000:117.959   CPU_ReadMem(4 bytes @ 0xE0040FCC)
+T481C 000:118.179   [0][4]: E0040000 CID B105900D PID 000BBD21 DEVARCH 00000000 DEVTYPE 11 TPIU
+T481C 000:118.187   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T481C 000:118.538   [0][5]: E00FF000 CID B105100D PID 000BB4C9 ROM Table
+T481C 000:118.546   ROMTbl[1] @ E00FF000
+T481C 000:118.554   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T481C 000:119.032   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T481C 000:119.359   CPU_ReadMem(4 bytes @ 0xE000EFBC)
+T481C 000:119.607   CPU_ReadMem(4 bytes @ 0xE000EFCC)
+T481C 000:119.834   [1][0]: E000E000 CID B105900D PID 000BBD21 DEVARCH 47702A04 DEVTYPE 00 Cortex-M33
+T481C 000:119.843   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T481C 000:120.186   CPU_ReadMem(4 bytes @ 0xE0001FBC)
+T481C 000:120.417   CPU_ReadMem(4 bytes @ 0xE0001FCC)
+T481C 000:120.654   [1][1]: E0001000 CID B105900D PID 000BBD21 DEVARCH 47701A02 DEVTYPE 00 DWT
+T481C 000:120.662   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T481C 000:121.028   CPU_ReadMem(4 bytes @ 0xE0002FBC)
+T481C 000:121.255   CPU_ReadMem(4 bytes @ 0xE0002FCC)
+T481C 000:121.459   [1][2]: E0002000 CID B105900D PID 000BBD21 DEVARCH 47701A03 DEVTYPE 00 FPB
+T481C 000:121.495   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+T481C 000:121.855   CPU_ReadMem(4 bytes @ 0xE0000FBC)
+T481C 000:122.065   CPU_ReadMem(4 bytes @ 0xE0000FCC)
+T481C 000:122.291   [1][3]: E0000000 CID B105900D PID 000BBD21 DEVARCH 47701A01 DEVTYPE 43 ITM
+T481C 000:122.299   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+T481C 000:122.660   CPU_ReadMem(4 bytes @ 0xE0041FBC)
+T481C 000:122.867   CPU_ReadMem(4 bytes @ 0xE0041FCC)
+T481C 000:123.073   [1][5]: E0041000 CID B105900D PID 002BBD21 DEVARCH 47724A13 DEVTYPE 13 ETM
+T481C 000:123.103   CPU_ReadMem(32 bytes @ 0xE0042FE0)
+T481C 000:123.472   CPU_ReadMem(4 bytes @ 0xE0042FBC)
+T481C 000:123.799   CPU_ReadMem(4 bytes @ 0xE0042FCC)
+T481C 000:124.160   [1][6]: E0042000 CID B105900D PID 000BBD21 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+T481C 000:124.238   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:124.524   Data:  01 00 10 01
+T481C 000:124.551   Debug reg: DHCSR
+T481C 000:124.567 - 26.723ms returns 0
+T481C 000:124.657 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T481C 000:124.684   CPU_ReadMem(4 bytes @ 0x400E002C)
+T481C 000:124.929   Data:  01 00 00 00
+T481C 000:125.005 - 0.347ms returns 0
+T481C 000:125.075 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:125.128   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:125.420   Data:  01 00 10 01
+T481C 000:125.432   Debug reg: DHCSR
+T481C 000:125.443 - 0.367ms returns 0
+T481C 000:125.472 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:125.480   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:125.712   Data:  01 00 10 01
+T481C 000:125.721   Debug reg: DHCSR
+T481C 000:125.730 - 0.258ms returns 0
+T481C 000:125.738 JLINK_ReadMem(0x400E001C, 0x4 Bytes, ...)
+T481C 000:125.745   CPU_ReadMem(4 bytes @ 0x400E001C)
+T481C 000:125.949   Data:  00 FC FF 00
+T481C 000:125.959 - 0.221ms returns 0
+T481C 000:125.968 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:125.975   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:126.192   Data:  01 00 10 01
+T481C 000:126.201   Debug reg: DHCSR
+T481C 000:126.208 - 0.240ms returns 0
+T481C 000:126.215 JLINK_ReadMem(0x400E0018, 0x4 Bytes, ...)
+T481C 000:126.222   CPU_ReadMem(4 bytes @ 0x400E0018)
+T481C 000:126.417   Data:  00 80 FF 00
+T481C 000:126.427 - 0.211ms returns 0
+T481C 000:126.435 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:126.441   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:126.673   Data:  01 00 10 01
+T481C 000:126.681   Debug reg: DHCSR
+T481C 000:126.690 - 0.256ms returns 0
+T481C 000:126.697 JLINK_ReadMem(0x400E0020, 0x4 Bytes, ...)
+T481C 000:126.703   CPU_ReadMem(4 bytes @ 0x400E0020)
+T481C 000:126.904   Data:  00 FC 00 00
+T481C 000:126.912 - 0.215ms returns 0
+T481C 000:126.920 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:126.926   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:127.129   Data:  01 00 10 01
+T481C 000:127.137   Debug reg: DHCSR
+T481C 000:127.145 - 0.224ms returns 0
+T481C 000:127.151 JLINK_ReadMem(0x400E0028, 0x4 Bytes, ...)
+T481C 000:127.157   CPU_ReadMem(4 bytes @ 0x400E0028)
+T481C 000:127.417   Data:  00 FC 1F 00
+T481C 000:127.425 - 0.273ms returns 0
+T481C 000:127.433 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:127.439   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:127.661   Data:  01 00 10 01
+T481C 000:127.686   Debug reg: DHCSR
+T481C 000:127.705 - 0.272ms returns 0
+T481C 000:127.720 JLINK_ReadMem(0x400E0024, 0x4 Bytes, ...)
+T481C 000:127.741   CPU_ReadMem(4 bytes @ 0x400E0024)
+T481C 000:127.966   Data:  00 E0 1F 00
+T481C 000:127.978 - 0.258ms returns 0
+T481C 000:127.988 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T481C 000:127.996   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T481C 000:128.199   Data:  01 00 10 01
+T481C 000:128.207   Debug reg: DHCSR
+T481C 000:128.215 - 0.227ms returns 0
+T481C 000:128.223 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T481C 000:128.229   CPU_ReadMem(4 bytes @ 0x400E002C)
+T481C 000:128.458   Data:  01 00 00 00
+T481C 000:128.467 - 0.244ms returns 0
+T481C 000:131.667 JLINK_Close()
+T481C 000:144.310 - 12.642ms
+T481C 000:144.335   
+T481C 000:144.341   Closed
