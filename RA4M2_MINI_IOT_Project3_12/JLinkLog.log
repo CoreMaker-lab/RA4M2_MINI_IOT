@@ -1,0 +1,212 @@
+T932C 000:000.943   SEGGER J-Link V8.12f Log File
+T932C 000:001.062   DLL Compiled: Feb 12 2025 13:34:40
+T932C 000:001.076   Logging started @ 2025-12-28 12:42
+T932C 000:001.089   Process: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\e2-server-gdb.exe
+T932C 000:001.106 - 1.102ms 
+T932C 000:001.125 JLINK_GetDLLVersion()
+T932C 000:001.138 - 0.014ms returns 81206
+T932C 000:003.057 JLINK_OpenEx(...)
+T932C 000:009.600   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T932C 000:010.197   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T932C 000:010.333   Decompressing FW timestamp took 97 us
+T932C 000:017.024   Hardware: V9.60
+T932C 000:017.138   S/N: 69667700
+T932C 000:017.224   OEM: SEGGER
+T932C 000:028.950   Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+T932C 000:029.476   Bootloader: (FW returned invalid version)
+T932C 000:030.367   TELNET listener socket opened on port 19021
+T932C 000:030.676   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T932C 000:031.047   WEBSRV Webserver running on local port 19080
+T932C 000:032.540   Looking for J-Link GUI Server exe at: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\ARM\Segger_v8.12.6\JLinkGUIServer.exe
+T932C 000:033.164   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T932C 000:033.534   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T932C 000:064.949   J-Link GUI Server info: "J-Link GUI server V8.18 "
+T932C 000:070.827 - 67.765ms returns "O.K."
+T932C 000:070.976 JLINK_ExecCommand("ProjectFile=C:\Users\a8456\e2_studio\workspace\RA4M2_MINI_IOT_Project3_12/RA4M2_MINI_IOT_Project3_12.elf.jlink", ...). 
+T932C 000:096.165 - 25.197ms returns 0x00
+T932C 000:096.423 JLINK_ExecCommand("device=R7FA4M2AD", ...). 
+T932C 000:096.676   Flash bank @ 0x0100A100: SFL: Parsing sectorization info from ELF file
+T932C 000:096.690     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000010, .SectorStartAddr = 0x00000000
+T932C 000:096.700   FlashBank @0x0100A100: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+T932C 000:097.034   Flash bank @ 0x60000000: SFL: Parsing sectorization info from ELF file
+T932C 000:097.069     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T932C 000:100.862   Device "R7FA4M2AD" selected.
+T932C 000:101.337 - 4.903ms returns 0x00
+T932C 000:101.363 JLINK_TIF_GetAvailable(...)
+T932C 000:101.510 - 0.146ms 
+T932C 000:101.601 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T932C 000:102.071 - 0.470ms returns 0x00
+T932C 000:102.103 JLINK_SetSpeed(4000)
+T932C 000:102.210 - 0.108ms 
+T932C 000:102.236 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:102.378   ConfigTargetSettings() start
+T932C 000:102.396    J-Link Script File: Executing ConfigTargetSettings()
+T932C 000:102.404   Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+T932C 000:109.160   ConfigTargetSettings() end - Took 6.76ms
+T932C 000:109.174   InitTarget() start
+T932C 000:109.183    J-Link Script File: Executing InitTarget()
+T932C 000:109.195   SWD selected. Executing JTAG -> SWD switching sequence.
+T932C 000:110.543   DAP initialized successfully.
+T932C 000:110.579   Determining TrustZone configuration...
+T932C 000:111.247     Secure Debug: Enabled (SSD)
+T932C 000:111.261   Determining currently configured transfer type by reading the AHB-AP CSW register.
+T932C 000:111.778     --> Correct transfer type configured. Done.
+T932C 000:111.795   InitTarget() end - Took 2.61ms
+T932C 000:112.250   Found SW-DP with ID 0x6BA02477
+T932C 000:114.060   DPIDR: 0x6BA02477
+T932C 000:114.390   CoreSight SoC-400 or earlier
+T932C 000:114.451   Scanning AP map to find all available APs
+T932C 000:115.218   AP[2]: Stopped AP scan as end of AP map has been reached
+T932C 000:115.264   AP[0]: AHB-AP (IDR: 0x84770001, ADDR: 0x00000000)
+T932C 000:115.280   AP[1]: APB-AP (IDR: 0x54770002, ADDR: 0x01000000)
+T932C 000:115.296   Iterating through AP map to find AHB-AP to use
+T932C 000:116.150   AP[0]: Core found
+T932C 000:116.201   AP[0]: AHB-AP ROM base: 0xE00FE000
+T932C 000:116.577   CPUID register: 0x410FD214. Implementer code: 0x41 (ARM)
+T932C 000:116.596   Feature set: Mainline
+T932C 000:116.992   Cache: No cache
+T932C 000:117.014   Found Cortex-M33 r0p4, Little endian.
+T932C 000:117.298   -- Max. mem block: 0x00010A88
+T932C 000:117.831   
+  ***** Warning: 
+T932C 000:117.860   Cortex-M (ARMv8-M and later): The connected J-Link (S/N 69667700) uses an old firmware module that does not handle I/D-cache correctly. Proper debugging functionality cannot be guaranteed if cache is enabled
+T932C 000:117.890   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:118.152   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T932C 000:118.433   CPU_ReadMem(4 bytes @ 0xE0002000)
+T932C 000:118.722   FPUnit: 8 code (BP) slots and 0 literal slots
+T932C 000:118.734   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T932C 000:119.088   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T932C 000:119.330   CPU_ReadMem(4 bytes @ 0xE0001000)
+T932C 000:119.631   CPU_ReadMem(4 bytes @ 0xE0001000)
+T932C 000:119.912   CPU_ReadMem(4 bytes @ 0xE0001028)
+T932C 000:120.134   CPU_ReadMem(4 bytes @ 0xE0001038)
+T932C 000:120.373   CPU_ReadMem(4 bytes @ 0xE0001048)
+T932C 000:120.610   CPU_ReadMem(4 bytes @ 0xE0001058)
+T932C 000:120.901   CPU_WriteMem(4 bytes @ 0xE0001000)
+T932C 000:121.178   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T932C 000:121.411   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T932C 000:121.724   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T932C 000:122.022   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T932C 000:122.292   CPU_ReadMem(4 bytes @ 0xE000EFB8)
+T932C 000:122.516   Security extension: implemented
+T932C 000:122.526   Secure debug: enabled
+T932C 000:122.534   CoreSight components:
+T932C 000:122.542   ROMTbl[0] @ E00FE000
+T932C 000:122.551   CPU_ReadMem(64 bytes @ 0xE00FE000)
+T932C 000:123.086   CPU_ReadMem(32 bytes @ 0xE0044FE0)
+T932C 000:123.465   CPU_ReadMem(4 bytes @ 0xE0044FBC)
+T932C 000:123.723   CPU_ReadMem(4 bytes @ 0xE0044FCC)
+T932C 000:123.989   [0][0]: E0044000 CID B105900D PID 005BB906 DEVARCH 00000000 DEVTYPE 14 CTI (?)
+T932C 000:124.006   CPU_ReadMem(32 bytes @ 0xE0047FE0)
+T932C 000:124.381   CPU_ReadMem(4 bytes @ 0xE0047FBC)
+T932C 000:124.603   CPU_ReadMem(4 bytes @ 0xE0047FCC)
+T932C 000:124.897   [0][1]: E0047000 CID B105900D PID 003BB908 DEVARCH 00000000 DEVTYPE 12 CSTF
+T932C 000:124.936   CPU_ReadMem(32 bytes @ 0xE0048FE0)
+T932C 000:125.329   CPU_ReadMem(4 bytes @ 0xE0048FBC)
+T932C 000:125.622   CPU_ReadMem(4 bytes @ 0xE0048FCC)
+T932C 000:125.899   [0][2]: E0048000 CID B105900D PID 001BB961 DEVARCH 00000000 DEVTYPE 21 TMC
+T932C 000:125.928   CPU_ReadMem(32 bytes @ 0xE0049FE0)
+T932C 000:126.319   [0][3]: E0049000 CID B105F00D PID 001BB101 TSG
+T932C 000:126.348   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+T932C 000:126.740   CPU_ReadMem(4 bytes @ 0xE0040FBC)
+T932C 000:126.980   CPU_ReadMem(4 bytes @ 0xE0040FCC)
+T932C 000:127.210   [0][4]: E0040000 CID B105900D PID 000BBD21 DEVARCH 00000000 DEVTYPE 11 TPIU
+T932C 000:127.228   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T932C 000:127.584   [0][5]: E00FF000 CID B105100D PID 000BB4C9 ROM Table
+T932C 000:127.601   ROMTbl[1] @ E00FF000
+T932C 000:127.610   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T932C 000:128.182   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T932C 000:128.565   CPU_ReadMem(4 bytes @ 0xE000EFBC)
+T932C 000:128.811   CPU_ReadMem(4 bytes @ 0xE000EFCC)
+T932C 000:129.062   [1][0]: E000E000 CID B105900D PID 000BBD21 DEVARCH 47702A04 DEVTYPE 00 Cortex-M33
+T932C 000:129.079   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T932C 000:129.451   CPU_ReadMem(4 bytes @ 0xE0001FBC)
+T932C 000:129.710   CPU_ReadMem(4 bytes @ 0xE0001FCC)
+T932C 000:129.958   [1][1]: E0001000 CID B105900D PID 000BBD21 DEVARCH 47701A02 DEVTYPE 00 DWT
+T932C 000:130.677   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T932C 000:131.254   CPU_ReadMem(4 bytes @ 0xE0002FBC)
+T932C 000:131.562   CPU_ReadMem(4 bytes @ 0xE0002FCC)
+T932C 000:131.911   [1][2]: E0002000 CID B105900D PID 000BBD21 DEVARCH 47701A03 DEVTYPE 00 FPB
+T932C 000:132.027   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+T932C 000:132.458   CPU_ReadMem(4 bytes @ 0xE0000FBC)
+T932C 000:132.730   CPU_ReadMem(4 bytes @ 0xE0000FCC)
+T932C 000:133.039   [1][3]: E0000000 CID B105900D PID 000BBD21 DEVARCH 47701A01 DEVTYPE 43 ITM
+T932C 000:133.071   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+T932C 000:133.456   CPU_ReadMem(4 bytes @ 0xE0041FBC)
+T932C 000:133.714   CPU_ReadMem(4 bytes @ 0xE0041FCC)
+T932C 000:133.962   [1][5]: E0041000 CID B105900D PID 002BBD21 DEVARCH 47724A13 DEVTYPE 13 ETM
+T932C 000:133.974   CPU_ReadMem(32 bytes @ 0xE0042FE0)
+T932C 000:134.353   CPU_ReadMem(4 bytes @ 0xE0042FBC)
+T932C 000:134.754   CPU_ReadMem(4 bytes @ 0xE0042FCC)
+T932C 000:135.024   [1][6]: E0042000 CID B105900D PID 000BBD21 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+T932C 000:135.074   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:135.337   Data:  01 00 10 01
+T932C 000:135.349   Debug reg: DHCSR
+T932C 000:135.359 - 33.122ms returns 0
+T932C 000:135.374 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T932C 000:135.383   CPU_ReadMem(4 bytes @ 0x400E002C)
+T932C 000:135.733   Data:  01 00 00 00
+T932C 000:135.764 - 0.389ms returns 0
+T932C 000:135.836 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:135.870   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:136.149   Data:  01 00 10 01
+T932C 000:136.173   Debug reg: DHCSR
+T932C 000:136.190 - 0.354ms returns 0
+T932C 000:136.235 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:136.255   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:136.516   Data:  01 00 10 01
+T932C 000:136.562   Debug reg: DHCSR
+T932C 000:136.583 - 0.348ms returns 0
+T932C 000:136.596 JLINK_ReadMem(0x400E001C, 0x4 Bytes, ...)
+T932C 000:136.607   CPU_ReadMem(4 bytes @ 0x400E001C)
+T932C 000:136.893   Data:  00 FC FF 00
+T932C 000:136.918 - 0.322ms returns 0
+T932C 000:136.938 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:136.956   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:137.252   Data:  01 00 10 01
+T932C 000:137.267   Debug reg: DHCSR
+T932C 000:137.276 - 0.338ms returns 0
+T932C 000:137.285 JLINK_ReadMem(0x400E0018, 0x4 Bytes, ...)
+T932C 000:137.294   CPU_ReadMem(4 bytes @ 0x400E0018)
+T932C 000:137.560   Data:  00 80 FF 00
+T932C 000:137.597 - 0.311ms returns 0
+T932C 000:137.622 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:137.640   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:137.895   Data:  01 00 10 01
+T932C 000:137.917   Debug reg: DHCSR
+T932C 000:137.933 - 0.312ms returns 0
+T932C 000:137.949 JLINK_ReadMem(0x400E0020, 0x4 Bytes, ...)
+T932C 000:137.965   CPU_ReadMem(4 bytes @ 0x400E0020)
+T932C 000:138.200   Data:  00 FC 00 00
+T932C 000:138.215 - 0.266ms returns 0
+T932C 000:138.229 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:138.238   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:138.515   Data:  01 00 10 01
+T932C 000:138.535   Debug reg: DHCSR
+T932C 000:138.545 - 0.316ms returns 0
+T932C 000:138.557 JLINK_ReadMem(0x400E0028, 0x4 Bytes, ...)
+T932C 000:138.567   CPU_ReadMem(4 bytes @ 0x400E0028)
+T932C 000:138.802   Data:  00 FC 1F 00
+T932C 000:138.813 - 0.256ms returns 0
+T932C 000:138.825 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:138.833   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:139.051   Data:  01 00 10 01
+T932C 000:139.061   Debug reg: DHCSR
+T932C 000:139.069 - 0.244ms returns 0
+T932C 000:139.078 JLINK_ReadMem(0x400E0024, 0x4 Bytes, ...)
+T932C 000:139.086   CPU_ReadMem(4 bytes @ 0x400E0024)
+T932C 000:139.304   Data:  00 E0 1F 00
+T932C 000:139.315 - 0.237ms returns 0
+T932C 000:139.325 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T932C 000:139.331   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T932C 000:139.550   Data:  01 00 10 01
+T932C 000:139.572   Debug reg: DHCSR
+T932C 000:139.589 - 0.263ms returns 0
+T932C 000:139.606 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T932C 000:139.619   CPU_ReadMem(4 bytes @ 0x400E002C)
+T932C 000:139.915   Data:  01 00 00 00
+T932C 000:139.940 - 0.333ms returns 0
+T932C 000:145.153 JLINK_Close()
+T932C 000:155.413 - 10.259ms
+T932C 000:155.448   
+T932C 000:155.454   Closed
