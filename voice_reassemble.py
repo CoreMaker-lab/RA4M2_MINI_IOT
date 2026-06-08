@@ -23,7 +23,7 @@ import paho.mqtt.client as mqtt
 
 # ---------- MQTT 配置 ----------
 MQTT_BROKER   = "127.0.0.1"
-MQTT_PORT     = 1884
+MQTT_PORT     = 1883
 MQTT_CLIENTID = "PC-voice-reassembler"
 
 # 调试阶段直接订阅全部，后面你也可以改回具体 Topic

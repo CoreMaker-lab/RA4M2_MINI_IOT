@@ -23,17 +23,16 @@ import requests
 # ================== 配置 ==================
 
 # 1) RA4M2 AgentRun 接口
-AGENT_URL = os.environ.get(
-    "AGENT_URL",
+AGENT_URL = (
     "https://1930052576475971.agentrun-data.cn-hangzhou.aliyuncs.com/"
-    "agent-runtimes/RA4M2/endpoints/Default/invocations/openai/v1/chat/completions"
+    "agent-runtimes/RA4M2_1/endpoints/Default/invocations/"
+    "openai/v1/chat/completions"
 )
-
 # 2) 阿里云智能语音 NLS 配置
 #    本地测试时，可以直接把 "YOUR_XXX_HERE" 换成你控制台里的真实值
 #    上线到 FC 时，可以删掉这两个默认值，改由环境变量注入。
-NLS_APPKEY = "hfwLYqR6T2c5KB9U"
-NLS_TOKEN  = "4b367e13c23347e4943f18e123d31d9f"
+NLS_APPKEY = "SKcAB1cZOqjhjElQ"
+NLS_TOKEN  = "2c150123dfbe4b20b273b51cd3f26b21"
 
 NLS_VOICE  = "xiaoyun"
 NLS_REGION = "cn-shanghai"
