@@ -34,14 +34,10 @@ import requests
 # 1. ≈‰÷√«¯
 # =========================================================
 
-AGENT_URL = os.environ.get(
-    "AGENT_URL",
-    "https://1930052576475971.agentrun-data.cn-hangzhou.aliyuncs.com/agent-runtimes/RA4M2_1/endpoints/Default/invocations"
-    "agent-runtimes/RA4M2_1/endpoints/Default/invocations/openai/v1/chat/completions"
-)
+AGENT_URL = "https://1930052576475971.agentrun-data.cn-hangzhou.aliyuncs.com/agent-runtimes/RA4M2_1/endpoints/Default/invocations/openai/v1/chat/completions"
 
 NLS_APPKEY = os.environ.get("NLS_APPKEY", "SKcAB1cZOqjhjElQ")
-NLS_TOKEN = os.environ.get("NLS_TOKEN", "3dcc832dffe8420899642c67a8f4197c")
+NLS_TOKEN = os.environ.get("NLS_TOKEN", "f526dc6a72d2439e867f783d78642c86")
 NLS_REGION = os.environ.get("NLS_REGION", "cn-shanghai")
 NLS_VOICE = os.environ.get("NLS_VOICE", "xiaoyun")
 

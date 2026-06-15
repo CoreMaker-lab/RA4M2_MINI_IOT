@@ -1,0 +1,10 @@
+{
+  "session_id": 9,
+  "asr_text": "天气。",
+  "reply_text": "请说出您所在的城市，我才能帮您查天气哦。请问还有其他问题吗？",
+  "cloud_ok": true,
+  "input_wav": "voice_sessions\\session-9_input.wav",
+  "answer_raw": "answer_sessions\\answer-9.raw",
+  "reply_port": 9000,
+  "created_at": 1781146925
+}

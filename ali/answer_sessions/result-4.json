@@ -1,10 +1,10 @@
 {
   "session_id": 4,
-  "asr_text": "",
-  "reply_text": "您好，我没有听清楚，请再说一遍。",
-  "cloud_ok": false,
+  "asr_text": "今天天气多少？",
+  "reply_text": "请告诉我您所在的城市，我才能查询今天的天气哦。请问还有其他问题吗？",
+  "cloud_ok": true,
   "input_wav": "voice_sessions\\session-4_input.wav",
   "answer_raw": "answer_sessions\\answer-4.raw",
   "reply_port": 9000,
-  "created_at": 1781079521
+  "created_at": 1781145763
 }
