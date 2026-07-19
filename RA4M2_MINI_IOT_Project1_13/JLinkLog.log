@@ -1,0 +1,212 @@
+T219C 000:000.541   SEGGER J-Link V8.12f Log File
+T219C 000:000.630   DLL Compiled: Feb 12 2025 13:34:40
+T219C 000:000.636   Logging started @ 2026-07-19 08:36
+T219C 000:000.643   Process: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\e2-server-gdb.exe
+T219C 000:000.652 - 0.649ms 
+T219C 000:000.664 JLINK_GetDLLVersion()
+T219C 000:000.670 - 0.006ms returns 81206
+T219C 000:002.566 JLINK_OpenEx(...)
+T219C 000:010.370   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T219C 000:012.039   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T219C 000:012.265   Decompressing FW timestamp took 172 us
+T219C 000:020.421   Hardware: V9.20
+T219C 000:020.472   S/N: 4294967295
+T219C 000:020.492   OEM: SEGGER
+T219C 000:020.510   Feature(s): RDI, GDB, FlashDL, FlashBP, JFlash
+T219C 000:022.055   Bootloader: (FW returned invalid version)
+T219C 000:025.391   TELNET listener socket opened on port 19021
+T219C 000:025.878   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T219C 000:026.059   WEBSRV Webserver running on local port 19080
+T219C 000:026.513   Looking for J-Link GUI Server exe at: C:\Users\a8456\.eclipse\com.renesas.platform_1713588285\DebugComp\RA\ARM\Segger_v8.12.6\JLinkGUIServer.exe
+T219C 000:026.686   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T219C 000:026.738   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V818\JLinkGUIServer.exe
+T219C 000:060.607   J-Link GUI Server info: "J-Link GUI server V8.18 "
+T219C 000:064.801 - 62.224ms returns "O.K."
+T219C 000:064.938 JLINK_ExecCommand("ProjectFile=C:\Users\a8456\e2_studio\workspace\RA4M2_MINI_IOT_Project1_13/RA4M2_MINI_IOT_Project1_13.elf.jlink", ...). 
+T219C 000:083.027 - 18.092ms returns 0x00
+T219C 000:083.293 JLINK_ExecCommand("device=R7FA4M2AD", ...). 
+T219C 000:083.952   Flash bank @ 0x0100A100: SFL: Parsing sectorization info from ELF file
+T219C 000:083.970     FlashDevice.SectorInfo[0]: .SectorSize = 0x00000010, .SectorStartAddr = 0x00000000
+T219C 000:083.979   FlashBank @0x0100A100: Sectorization info from SFL ELF file ignored because sectorization override from DLL / XML file is active.
+T219C 000:084.147   Flash bank @ 0x60000000: SFL: Parsing sectorization info from ELF file
+T219C 000:084.160     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T219C 000:086.760   Device "R7FA4M2AD" selected.
+T219C 000:087.100 - 3.795ms returns 0x00
+T219C 000:087.114 JLINK_TIF_GetAvailable(...)
+T219C 000:087.590 - 0.475ms 
+T219C 000:087.607 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T219C 000:089.506 - 1.898ms returns 0x00
+T219C 000:089.560 JLINK_SetSpeed(4000)
+T219C 000:089.962 - 0.404ms 
+T219C 000:090.023 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:090.696   ConfigTargetSettings() start
+T219C 000:090.726    J-Link Script File: Executing ConfigTargetSettings()
+T219C 000:090.876   Configuring FlashDLNoRMWThreshold=0x200 in order to make sure that option bytes programming is done via read-modify-write
+T219C 000:097.434   ConfigTargetSettings() end - Took 6.70ms
+T219C 000:097.452   InitTarget() start
+T219C 000:097.461    J-Link Script File: Executing InitTarget()
+T219C 000:097.468   SWD selected. Executing JTAG -> SWD switching sequence.
+T219C 000:100.872   DAP initialized successfully.
+T219C 000:100.892   Determining TrustZone configuration...
+T219C 000:103.018     Secure Debug: Enabled (SSD)
+T219C 000:103.027   Determining currently configured transfer type by reading the AHB-AP CSW register.
+T219C 000:104.699     --> Correct transfer type configured. Done.
+T219C 000:104.725   InitTarget() end - Took 7.26ms
+T219C 000:105.895   Found SW-DP with ID 0x6BA02477
+T219C 000:109.757   DPIDR: 0x6BA02477
+T219C 000:109.788   CoreSight SoC-400 or earlier
+T219C 000:109.802   Scanning AP map to find all available APs
+T219C 000:111.493   AP[2]: Stopped AP scan as end of AP map has been reached
+T219C 000:111.506   AP[0]: AHB-AP (IDR: 0x84770001, ADDR: 0x00000000)
+T219C 000:111.516   AP[1]: APB-AP (IDR: 0x54770002, ADDR: 0x01000000)
+T219C 000:111.525   Iterating through AP map to find AHB-AP to use
+T219C 000:112.986   AP[0]: Core found
+T219C 000:112.998   AP[0]: AHB-AP ROM base: 0xE00FE000
+T219C 000:113.695   CPUID register: 0x410FD214. Implementer code: 0x41 (ARM)
+T219C 000:113.706   Feature set: Mainline
+T219C 000:114.524   Cache: No cache
+T219C 000:114.536   Found Cortex-M33 r0p4, Little endian.
+T219C 000:115.503   -- Max. mem block: 0x00010CA8
+T219C 000:116.903   
+  ***** Warning: 
+T219C 000:116.915   Cortex-M (ARMv8-M and later): The connected J-Link (S/N 4294967295) uses an old firmware module that does not handle I/D-cache correctly. Proper debugging functionality cannot be guaranteed if cache is enabled
+T219C 000:116.931   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:117.494   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T219C 000:118.102   CPU_ReadMem(4 bytes @ 0xE0002000)
+T219C 000:118.766   FPUnit: 8 code (BP) slots and 0 literal slots
+T219C 000:118.805   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T219C 000:119.388   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T219C 000:119.988   CPU_ReadMem(4 bytes @ 0xE0001000)
+T219C 000:120.589   CPU_ReadMem(4 bytes @ 0xE0001000)
+T219C 000:121.181   CPU_ReadMem(4 bytes @ 0xE0001028)
+T219C 000:121.772   CPU_ReadMem(4 bytes @ 0xE0001038)
+T219C 000:122.339   CPU_ReadMem(4 bytes @ 0xE0001048)
+T219C 000:122.918   CPU_ReadMem(4 bytes @ 0xE0001058)
+T219C 000:123.517   CPU_WriteMem(4 bytes @ 0xE0001000)
+T219C 000:124.141   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T219C 000:124.719   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T219C 000:125.337   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T219C 000:125.905   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T219C 000:126.506   CPU_ReadMem(4 bytes @ 0xE000EFB8)
+T219C 000:127.037   Security extension: implemented
+T219C 000:127.047   Secure debug: enabled
+T219C 000:127.056   CoreSight components:
+T219C 000:127.065   ROMTbl[0] @ E00FE000
+T219C 000:127.074   CPU_ReadMem(64 bytes @ 0xE00FE000)
+T219C 000:127.982   CPU_ReadMem(32 bytes @ 0xE0044FE0)
+T219C 000:128.701   CPU_ReadMem(4 bytes @ 0xE0044FBC)
+T219C 000:129.260   CPU_ReadMem(4 bytes @ 0xE0044FCC)
+T219C 000:129.864   [0][0]: E0044000 CID B105900D PID 005BB906 DEVARCH 00000000 DEVTYPE 14 CTI (?)
+T219C 000:129.875   CPU_ReadMem(32 bytes @ 0xE0047FE0)
+T219C 000:130.601   CPU_ReadMem(4 bytes @ 0xE0047FBC)
+T219C 000:131.232   CPU_ReadMem(4 bytes @ 0xE0047FCC)
+T219C 000:131.818   [0][1]: E0047000 CID B105900D PID 003BB908 DEVARCH 00000000 DEVTYPE 12 CSTF
+T219C 000:131.835   CPU_ReadMem(32 bytes @ 0xE0048FE0)
+T219C 000:132.569   CPU_ReadMem(4 bytes @ 0xE0048FBC)
+T219C 000:133.168   CPU_ReadMem(4 bytes @ 0xE0048FCC)
+T219C 000:133.930   [0][2]: E0048000 CID B105900D PID 001BB961 DEVARCH 00000000 DEVTYPE 21 TMC
+T219C 000:133.956   CPU_ReadMem(32 bytes @ 0xE0049FE0)
+T219C 000:134.828   [0][3]: E0049000 CID B105F00D PID 001BB101 TSG
+T219C 000:134.876   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+T219C 000:135.662   CPU_ReadMem(4 bytes @ 0xE0040FBC)
+T219C 000:136.279   CPU_ReadMem(4 bytes @ 0xE0040FCC)
+T219C 000:136.866   [0][4]: E0040000 CID B105900D PID 000BBD21 DEVARCH 00000000 DEVTYPE 11 TPIU
+T219C 000:136.878   CPU_ReadMem(32 bytes @ 0xE00FFFE0)
+T219C 000:137.605   [0][5]: E00FF000 CID B105100D PID 000BB4C9 ROM Table
+T219C 000:137.619   ROMTbl[1] @ E00FF000
+T219C 000:137.628   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T219C 000:138.613   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T219C 000:139.347   CPU_ReadMem(4 bytes @ 0xE000EFBC)
+T219C 000:139.943   CPU_ReadMem(4 bytes @ 0xE000EFCC)
+T219C 000:140.594   [1][0]: E000E000 CID B105900D PID 000BBD21 DEVARCH 47702A04 DEVTYPE 00 Cortex-M33
+T219C 000:140.614   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T219C 000:141.347   CPU_ReadMem(4 bytes @ 0xE0001FBC)
+T219C 000:141.923   CPU_ReadMem(4 bytes @ 0xE0001FCC)
+T219C 000:142.538   [1][1]: E0001000 CID B105900D PID 000BBD21 DEVARCH 47701A02 DEVTYPE 00 DWT
+T219C 000:142.549   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T219C 000:143.303   CPU_ReadMem(4 bytes @ 0xE0002FBC)
+T219C 000:143.860   CPU_ReadMem(4 bytes @ 0xE0002FCC)
+T219C 000:144.429   [1][2]: E0002000 CID B105900D PID 000BBD21 DEVARCH 47701A03 DEVTYPE 00 FPB
+T219C 000:144.444   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+T219C 000:145.181   CPU_ReadMem(4 bytes @ 0xE0000FBC)
+T219C 000:145.758   CPU_ReadMem(4 bytes @ 0xE0000FCC)
+T219C 000:146.330   [1][3]: E0000000 CID B105900D PID 000BBD21 DEVARCH 47701A01 DEVTYPE 43 ITM
+T219C 000:146.340   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+T219C 000:147.090   CPU_ReadMem(4 bytes @ 0xE0041FBC)
+T219C 000:147.684   CPU_ReadMem(4 bytes @ 0xE0041FCC)
+T219C 000:148.291   [1][5]: E0041000 CID B105900D PID 002BBD21 DEVARCH 47724A13 DEVTYPE 13 ETM
+T219C 000:148.304   CPU_ReadMem(32 bytes @ 0xE0042FE0)
+T219C 000:149.034   CPU_ReadMem(4 bytes @ 0xE0042FBC)
+T219C 000:149.671   CPU_ReadMem(4 bytes @ 0xE0042FCC)
+T219C 000:150.258   [1][6]: E0042000 CID B105900D PID 000BBD21 DEVARCH 47701A14 DEVTYPE 14 CSS600-CTI
+T219C 000:150.308   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:150.897   Data:  01 00 10 01
+T219C 000:150.908   Debug reg: DHCSR
+T219C 000:150.918 - 60.898ms returns 0
+T219C 000:150.951 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T219C 000:150.960   CPU_ReadMem(4 bytes @ 0x400E002C)
+T219C 000:151.575   Data:  01 00 00 00
+T219C 000:151.585 - 0.634ms returns 0
+T219C 000:151.606 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:151.613   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:152.192   Data:  01 00 10 01
+T219C 000:152.201   Debug reg: DHCSR
+T219C 000:152.210 - 0.603ms returns 0
+T219C 000:152.232 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:152.239   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:152.838   Data:  01 00 10 01
+T219C 000:152.847   Debug reg: DHCSR
+T219C 000:152.857 - 0.624ms returns 0
+T219C 000:152.865 JLINK_ReadMem(0x400E001C, 0x4 Bytes, ...)
+T219C 000:152.871   CPU_ReadMem(4 bytes @ 0x400E001C)
+T219C 000:153.510   Data:  00 FC FF 00
+T219C 000:153.519 - 0.654ms returns 0
+T219C 000:153.527 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:153.534   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:154.073   Data:  01 00 10 01
+T219C 000:154.083   Debug reg: DHCSR
+T219C 000:154.091 - 0.563ms returns 0
+T219C 000:154.099 JLINK_ReadMem(0x400E0018, 0x4 Bytes, ...)
+T219C 000:154.105   CPU_ReadMem(4 bytes @ 0x400E0018)
+T219C 000:154.714   Data:  00 80 FF 00
+T219C 000:154.723 - 0.624ms returns 0
+T219C 000:154.732 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:154.738   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:155.319   Data:  01 00 10 01
+T219C 000:155.328   Debug reg: DHCSR
+T219C 000:155.337 - 0.604ms returns 0
+T219C 000:155.344 JLINK_ReadMem(0x400E0020, 0x4 Bytes, ...)
+T219C 000:155.350   CPU_ReadMem(4 bytes @ 0x400E0020)
+T219C 000:155.917   Data:  00 FC 00 00
+T219C 000:155.926 - 0.582ms returns 0
+T219C 000:155.935 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:155.942   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:156.500   Data:  01 00 10 01
+T219C 000:156.509   Debug reg: DHCSR
+T219C 000:156.518 - 0.582ms returns 0
+T219C 000:156.525 JLINK_ReadMem(0x400E0028, 0x4 Bytes, ...)
+T219C 000:156.532   CPU_ReadMem(4 bytes @ 0x400E0028)
+T219C 000:157.139   Data:  00 FC 1F 00
+T219C 000:157.177 - 0.650ms returns 0
+T219C 000:157.202 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:157.232   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:158.018   Data:  01 00 10 01
+T219C 000:158.051   Debug reg: DHCSR
+T219C 000:158.062 - 0.860ms returns 0
+T219C 000:158.076 JLINK_ReadMem(0x400E0024, 0x4 Bytes, ...)
+T219C 000:158.089   CPU_ReadMem(4 bytes @ 0x400E0024)
+T219C 000:158.695   Data:  00 E0 1F 00
+T219C 000:158.733 - 0.656ms returns 0
+T219C 000:158.765 JLINK_ReadMem(0xE000EDF0, 0x4 Bytes, ...)
+T219C 000:158.786   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T219C 000:159.407   Data:  01 00 10 01
+T219C 000:159.426   Debug reg: DHCSR
+T219C 000:159.435 - 0.670ms returns 0
+T219C 000:159.446 JLINK_ReadMem(0x400E002C, 0x4 Bytes, ...)
+T219C 000:159.455   CPU_ReadMem(4 bytes @ 0x400E002C)
+T219C 000:160.012   Data:  01 00 00 00
+T219C 000:160.030 - 0.583ms returns 0
+T219C 000:163.544 JLINK_Close()
+T219C 000:187.656 - 24.111ms
+T219C 000:187.690   
+T219C 000:187.697   Closed
