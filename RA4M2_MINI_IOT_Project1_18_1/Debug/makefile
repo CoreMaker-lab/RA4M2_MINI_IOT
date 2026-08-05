@@ -85,7 +85,7 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-RA4M2_MINI_IOT_Project1_18_1.srec \
+RA4M2_MINI_IOT_Project1_18_1.hex \
 
 SECONDARY_SIZE += \
 RA4M2_MINI_IOT_Project1_18_1.siz \
@@ -98,8 +98,8 @@ all: RA4M2_MINI_IOT_Project1_18_1.elf secondary-outputs
 RA4M2_MINI_IOT_Project1_18_1.elf: $(OBJS) $(USER_OBJS) $(LINKER_SCRIPT)
 	$(file > RA4M2_MINI_IOT_Project1_18_1.elf.in,-mcpu=cortex-m33 -mthumb -mfloat-abi=hard -mfpu=fpv5-sp-d16 -O2 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-strict-aliasing -Wunused -Wuninitialized -Wall -Wextra -Wmissing-declarations -Wconversion -Wpointer-arith -Wshadow -Wlogical-op -Waggregate-return -Wfloat-equal -g -T "fsp.ld" -Xlinker --gc-sections -L "C:\\Users\\a8456\\e2_studio\\workspace\\RA4M2_MINI_IOT_Project1_18_1/script" -Wl,-Map,"RA4M2_MINI_IOT_Project1_18_1.map" --specs=nano.specs -u _printf_float --specs=nosys.specs -o "RA4M2_MINI_IOT_Project1_18_1.elf" -Wl,--start-group $(OBJS) $(USER_OBJS) $(LIBS) -Wl,--end-group)
 	@echo Building target: $@ && arm-none-eabi-gcc @"RA4M2_MINI_IOT_Project1_18_1.elf.in"
-RA4M2_MINI_IOT_Project1_18_1.srec: RA4M2_MINI_IOT_Project1_18_1.elf
-	arm-none-eabi-objcopy -O srec "RA4M2_MINI_IOT_Project1_18_1.elf"  "RA4M2_MINI_IOT_Project1_18_1.srec"
+RA4M2_MINI_IOT_Project1_18_1.hex: RA4M2_MINI_IOT_Project1_18_1.elf
+	arm-none-eabi-objcopy -O ihex "RA4M2_MINI_IOT_Project1_18_1.elf"  "RA4M2_MINI_IOT_Project1_18_1.hex"
 RA4M2_MINI_IOT_Project1_18_1.siz: RA4M2_MINI_IOT_Project1_18_1.elf
 	arm-none-eabi-size --format=berkeley "RA4M2_MINI_IOT_Project1_18_1.elf"
 # Other Targets
